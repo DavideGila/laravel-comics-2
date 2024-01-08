@@ -23,15 +23,10 @@
             <div class="text-center pb-3">
                 <button class="btn btn-primary">LOAD MORE</button>
             </div>
+            <div class="text-center pb-3">
+                <button class="btn btn-primary"><a href="{{route('comics.create')}}" class="text-white">CREATE</a></button>
+            </div>
         </div>
     </div>
-    {{-- <div class="bg-primary d-flex py-4">
-        <div class="container d-flex justify-content-between align-items-center p-3">
-            @foreach ($content as $el)
-            <img src="{{$el->thumb}}" alt="" class="blue-bar-image">
-            <span class="p-2 text-uppercase text-light">{{ $el->text }}</span>
-            @endforeach
-        </div>
-    </div> --}}
 </main>
 @endsection

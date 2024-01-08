@@ -95,3 +95,4 @@ class ComicController extends Controller
         //
     }
 }
+

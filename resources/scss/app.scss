@@ -1,0 +1,56 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.jumbotron {
+    height: 400px;
+    background-image: url('../images/jumbotron.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.series-img {
+    width: 200px;
+    height: 200px;
+    object-position: top;
+}
+
+.title {
+    width: 90%;
+    padding: 5px 0;
+}
+
+.blue-bar-image{
+    width: 40px;
+}
+
+.bg-main {
+    background-image: url('/images/footer-bg.jpg');
+    background-size: cover;
+}
+
+.bg-main-logo {
+    background-image: url('/images/dc-logo-bg.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.bg-grey {
+    background-color: rgb(53, 53, 53)
+}

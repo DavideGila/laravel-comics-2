@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        <button class="btn btn-primary my-3"><a href="{{route('comics.edit', $comic->id)}}" class="text-white">Edit</a></button>
     </section>
 </main>
 @endsection

@@ -65,11 +65,11 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -77,11 +77,18 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->All();
+        $comic->description = $formData['description'];
+        $comic->thumb = $formData['thumb'];
+        $comic->price = $formData['price'];
+        $comic->title = $formData['title'];
+        $comic->sale_date = $formData['sale_date'];
+        $comic->series = $formData['series'];
+        $comic->type = $formData['type'];
+        $comic->update();
     }
 
     /**

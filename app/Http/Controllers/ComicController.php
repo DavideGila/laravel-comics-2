@@ -82,14 +82,10 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $formData = $request->All();
-        $comic->description = $formData['description'];
-        $comic->thumb = $formData['thumb'];
-        $comic->price = $formData['price'];
-        $comic->title = $formData['title'];
-        $comic->sale_date = $formData['sale_date'];
-        $comic->series = $formData['series'];
-        $comic->type = $formData['type'];
+        $comic->fill($formData);
         $comic->update();
+
+        return to_route('comics.show', $comic->id);
     }
 
     /**

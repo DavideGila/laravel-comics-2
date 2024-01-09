@@ -15,7 +15,12 @@
                             <div>
                                 <h6 class="title text-light text-uppercase">{{ $comic->title }}</h6>
                             </div>
-                            <div><a href="{{route('comics.show', $comic->id)}}" class="btn btn-primary">Read More</a></div>
+                            <span><a href="{{route('comics.show', $comic->id)}}" class="btn btn-primary">Read More</a></span>
+                            <form action="{{route('comics.show', $comic->id)}}" method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 @endforeach

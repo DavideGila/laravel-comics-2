@@ -8,6 +8,9 @@
         <div class="container">
             <span class="text-light bg-primary p-3 fs-3 text-uppercase">Current Series</span>
             <div class="row">
+            @if (session()->has('message'))
+                <div class="alert alert-success mt-4">{{ session()->get('message') }}</div>
+            @endif
                 @foreach ($comics as $comic)
                     <div class="col-2 py-5">
                         <div>

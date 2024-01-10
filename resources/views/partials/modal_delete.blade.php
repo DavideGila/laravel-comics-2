@@ -10,8 +10,8 @@
            <p>Confermi di voler eliminare <span id="modal-item-title"></span>?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" >Delete</button>
         </div>
       </div>
     </div>

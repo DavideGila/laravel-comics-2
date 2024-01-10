@@ -22,7 +22,7 @@
                             <form action="{{route('comics.show', $comic->id)}}" method="POST" class="mt-2">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="cancel-button btn btn-danger" data-item-title="{{ $comic->title }}">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -37,4 +37,6 @@
         </div>
     </div>
 </main>
+
+@include('partials.modal_delete');
 @endsection

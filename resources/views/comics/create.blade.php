@@ -17,7 +17,10 @@
             <form action="{{ route('comics.store') }}" method="POST">
                 @csrf
                 <input type="text" id="title" name="title" value="{{ old('title') }}" placeholder="Inserisci il titolo"
-                    class="form-control my-3 @error('title') is-invalid @enderror">
+                    class="form-control my-3">
+                    @error('title')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 <input type="text" id="description" name="description" placeholder="Inserisci la descrizione"
                     class="form-control my-3">
                 <input type="text" id="price" name="price" placeholder="Inserisci il prezzo"

@@ -27,7 +27,7 @@
                     class="form-control my-3">
                 <input type="text" id="type" name="type" placeholder="Inserisci il tipo"
                     class="form-control my-3">
-                <input type="text" id="thumb" name="thumb" placeholder="Inserisci l'immagine"
+                <input type="url" id="thumb" name="thumb" placeholder="Inserisci l'immagine"
                     class="form-control my-3">
                 <input type="text" id="sale_date" name="sale_date" placeholder="Inserisci la data"
                     class="form-control my-3">

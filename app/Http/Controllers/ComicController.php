@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -36,16 +37,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'description' => '|required|min:5|max:255',
-            'thumb' => '|required|min:5|max:255',
-            'price'=> '|required|min:5|max:255',
-            'title'=> '|required|min:5|max:255',
-            'sale_date'=> '|required|',
-            'series'=> '|required|min:5|max:255',
-            'type'=> '|required|min:5|max:255'
-        ]);
-        $formData = $request->all();
+        // $request->validate([
+        //     'description' => '|required|min:5|max:255',
+        //     'thumb' => '|required|min:5|max:255',
+        //     'price'=> '|required|min:5|max:255',
+        //     'title'=> '|required|min:5|max:255',
+        //     'sale_date'=> '|required|',
+        //     'series'=> '|required|min:5|max:255',
+        //     'type'=> '|required|min:5|max:255'
+        // ]);
+        $formData = $this->validation($request->all());
         $new_comic = Comic::create($formData);
 
         return to_route('comics.index', $new_comic->id);
@@ -81,7 +82,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $formData = $request->All();
+        $formData = $this->validation($request->all());
         $comic->fill($formData);
         $comic->update();
 
@@ -97,6 +98,29 @@ class ComicController extends Controller
     {
         $comic->delete();
         return to_route('comics.index')->with('message', "Il prodotto $comic->title è stato eliminato");;
+    }
+    private function validation($data)
+    {
+        $validator = Validator::make($data,
+        [
+            'description' => '|required|min:5|max:255',
+            'thumb' => 'url',
+            'price'=> '|required|min:5|max:255',
+            'title'=> '|required|min:5|max:255',
+            'sale_date'=> '|required|',
+            'series'=> '|required|min:5|max:255',
+            'type'=> '|required|min:5|max:255'
+        ],[
+            'description.min' => 'Il campo descrizione deve avere :min caratteri',
+            'thumb.required' => 'Il campo immagine è obbligatorio',
+            'price.required' => 'Il campo prezzo è obbligatorio',
+            'title.required' => 'Il campo titolo è obbligatorio',
+            'sale_date.required' => 'Il campo data è obbligatorio',
+            'series.max' => 'Il campo serie non può superare i :max caratteri',
+            'type.max' => 'Il campo tipo non può superare i :max caratteri',
+        ])->validate();
+
+        return $validator;
     }
 }
 

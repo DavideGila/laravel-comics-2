@@ -7,6 +7,16 @@
     <div class="bg-dark">
         <div class="container">
             <span class="text-light bg-primary p-3 fs-3 text-uppercase">Current Series</span>
+            <div class="mt-4">
+                <form action="{{ route('comics.index') }}" method="GET">
+                    <select name="search" id="search">
+                        <option value="">Tutti</option>
+                        <option value="comic book">Comic book</option>
+                        <option value="graphic novel">Graphic novel</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Invio</button>
+                </form>
+            </div>
             <div class="row">
             @if (session()->has('message'))
                 <div class="alert alert-success mt-4">{{ session()->get('message') }}</div>
